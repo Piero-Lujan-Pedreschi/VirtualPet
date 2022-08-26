@@ -1,6 +1,6 @@
 
 void setup(){
-  size(400, 400, P3D);
+  size(400, 400);
   background(#33d6ff);
   smooth();
 }
