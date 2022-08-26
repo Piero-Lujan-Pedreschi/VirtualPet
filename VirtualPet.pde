@@ -2,6 +2,7 @@
 void setup(){
   size(400, 400, P3D);
   background(#33d6ff);
+  smooth();
 }
 void draw(){
   noStroke();
