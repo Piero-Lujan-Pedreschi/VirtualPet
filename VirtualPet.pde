@@ -19,13 +19,13 @@ void draw(){
   ellipse(85, 265, 30, 75);
   stroke(0, 0, 0);
   ellipse(185, 265, 30, 75);
-  translate(0, 0, 1);
+  translate(0, 0);
   fill(#ffffe6);
   triangle(225, 230, 235, 235, 245, 210);
   fill(#000000);
   ellipse(245, 245, 5, 5);
   noStroke();
-  translate(width/3, height/10, -1);
+  translate(width/3, height/10);
   rotate(radians(50));
   fill(#663300);
   rect(195, 30, 45, 45);
