@@ -1,33 +1,49 @@
+import processing.serial.*;
+import cc.arduino.*;
+Arduino arduino;
 
-void setup(){
+public void setup() {
   size(400, 400);
   background(#33d6ff);
-  smooth();
+  arduino = new Arduino(this, Arduino.list()[0], 57600); //change the [0] to a [1] or [2] etc. if your program doesn't work
 }
-void draw(){
+
+public void draw() {
+  background(#33d6ff);
+  int y = arduino.analogRead(5);
+  if (y >= 70) {
+    y = 70;
+  }
+  //for(float x = -250; x < 450; x=x + .01) {
+  //  //background(#33d6ff);
+  //  noStroke();
+  //  fill(#ffffff);
+  //  ellipse(x+100, 100, 50, 50);
+  //  ellipse(x+140, 90, 75, 75);
+  //  ellipse(x+170, 100, 60, 60);
+  //  ellipse(x+195, 110, 30, 30);
+  //  println(x, "x");
+  //}
+  System.out.println(y);
   noStroke();
   fill(#336600);
   rect(0, 300, 400, 100);
   fill(#0033cc);
-  arc(320, 300, 150, 125, 0, PI);
+  arc(300, 300, 150, 125, 0, PI);
   fill(#4d2600);
-  ellipse(150, 250, 175, 75);
+  ellipse(150, 260, 175, 75);
   fill(#663300);
-  ellipse(185, 235, 70, 60);
+  ellipse(185, 245, 70, 60);
   stroke(0, 0, 0);
   fill(#4d2600);
-  ellipse(85, 265, 30, 75);
+  ellipse(85, 275, 30, 75);
   stroke(0, 0, 0);
-  ellipse(185, 265, 30, 75);
-  translate(0, 0);
-  fill(#ffffe6);
-  triangle(225, 230, 235, 235, 245, 210);
-  fill(#000000);
-  ellipse(245, 245, 5, 5);
+  ellipse(185, 275, 30, 75);
   noStroke();
-  translate(width/3, height/10);
-  rotate(radians(50));
+  translate(152.5-.25*y, 50);
+  rotate(radians(57-.1*y));
   fill(#663300);
   rect(195, 30, 45, 45);
+  fill(#ffffe6);
+  triangle(210, 15, 205, 50, 215, 45);
 }
-
